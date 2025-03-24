@@ -3,6 +3,13 @@ from .models import Produto
 
 from django.shortcuts import render
 from .models import Produto
+from django.shortcuts import render
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+
+def custom_500(request):
+    return render(request, '500.html', status=500)
 
 def listar_produtos(request):
     produtos = Produto.objects.all()
@@ -33,3 +40,19 @@ def deletar_produto(request, id):
     produto = get_object_or_404(Produto, id=id)
     produto.delete()
     return redirect('listar_produtos')
+
+from django.shortcuts import render, redirect
+
+def listar_produtos(request):
+    return render(request, 'produtos/listar.html')
+
+def adicionar_produto(request):
+    return render(request, 'produtos/adicionar.html')
+
+from django.shortcuts import render
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+
+def custom_500(request):
+    return render(request, '500.html', status=500)
