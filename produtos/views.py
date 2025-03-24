@@ -1,10 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Produto
 
-from django.shortcuts import render
-from .models import Produto
-from django.shortcuts import render
-
 def custom_404(request, exception):
     return render(request, '404.html', status=404)
 
@@ -17,13 +13,20 @@ def listar_produtos(request):
 
 def adicionar_produto(request):
     if request.method == 'POST':
-        nome = request.POST['nome']
-        descricao = request.POST['descricao']
-        preco = request.POST['preco']
-        quantidade = request.POST['quantidade']
-        Produto.objects.create(nome=nome, descricao=descricao, preco=preco, quantidade=quantidade)
-        return redirect('listar_produtos')
+        nome = request.POST.get('nome', '').strip()
+        descricao = request.POST.get('descricao', '').strip()
+        preco = request.POST.get('preco', 0)
+        quantidade = request.POST.get('quantidade', 0)
+
+        # Validação básica dos campos
+        if nome and descricao and preco and quantidade:
+            Produto.objects.create(nome=nome, descricao=descricao, preco=float(preco), quantidade=int(quantidade))
+            return redirect('listar_produtos')  # Redireciona após sucesso
+        else:
+            return render(request, 'produtos/adicionar.html', {'error': 'Preencha todos os campos corretamente!'})
+
     return render(request, 'produtos/adicionar.html')
+
 
 def editar_produto(request, id):
     produto = get_object_or_404(Produto, id=id)

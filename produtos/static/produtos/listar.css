@@ -1,70 +1,87 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    background: linear-gradient(to bottom, #e6f7ff, #ffffff);
     color: #333;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #1e90ff;
+    background-color: #007BFF;
     color: white;
     text-align: center;
     padding: 20px;
     font-size: 1.8em;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-main {
-    margin: 30px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-thead {
-    background-color: #1e90ff;
-    color: white;
+main {
+    margin: auto;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
-    padding: 15px;
-    text-align: center;
-    border: 1px solid #ddd;
+form {
+    padding: 20px;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
+.form-group {
+    margin-bottom: 15px;
 }
 
-tr:hover {
-    background-color: #e6f7ff;
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
 }
 
-.botao {
-    display: inline-block;
-    padding: 8px 12px;
-    margin: 5px;
-    text-decoration: none;
-    color: white;
-    font-size: 0.9em;
+input, textarea {
+    width: 100%;
+    padding: 10px;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Evita problemas de dimensionamento */
+    background: #f8f9fa;
+}
+
+input:focus, textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+    background-color: #e6f7ff; /* Destaque ao selecionar */
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
     transition: all 0.3s ease-in-out;
 }
 
-.botao.editar {
-    background-color: #28a745;
+button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.botao.excluir {
-    background-color: #dc3545;
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 1em;
+    margin-top: 15px;
+    text-align: center;
 }
 
-.botao.editar:hover, .botao.excluir:hover {
-    background-color: #333333;
-    color: white;
+a:hover {
+    text-decoration: underline;
+    color: #0056b3;
 }
