@@ -3,9 +3,18 @@ from . import views
 
 urlpatterns = [
     path('', views.listar_produtos, name='listar_produtos'),
-    # Adicione outras rotas aqui, como adicionar, editar e excluir produtos.
-]
-from django.shortcuts import render
+    path('adicionar/', views.adicionar_produto, name='adicionar_produto'),  # Adicionar produto
 
-def listar_produtos(request):
-    return render(request, 'produtos/listar.html')
+]
+from django.shortcuts import render, redirect
+from .forms import ProdutoForm
+
+def adicionar_produto(request):
+    if request.method == 'POST':
+        form = ProdutoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_produtos')  # Redireciona após adicionar
+    else:
+        form = ProdutoForm()
+    return render(request, 'produtos/adicionar.html', {'form': form})

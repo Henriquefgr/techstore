@@ -4,25 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Produtos</title>
-    <link rel="stylesheet" href="lis.css">
+    {% load static %}
+<link rel="stylesheet" href="{% static 'produtos/listar.css' %}">
+   
 </head>
 <body>
-    <h1>Produtos Disponíveis</h1>
-    <table>
-        <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Preço</th>
-            <th>Quantidade</th>
-        </tr>
-        {% for produto in produtos %}
-        <tr>
-            <td>{{ produto.nome }}</td>
-            <td>{{ produto.descricao }}</td>
-            <td>{{ produto.preco }}</td>
-            <td>{{ produto.quantidade }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <header>
+        <h1>Produtos Disponíveis</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.descricao }}</td>
+                    <td>R$ {{ produto.preco }}</td>
+                    <td>{{ produto.quantidade }}</td>
+                    <td>
+                        <a href="/editar/{{ produto.id }}" class="btn-editar">Editar</a>
+                        <a href="/excluir/{{ produto.id }}" class="btn-excluir">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/adicionar/" class="btn-adicionar">Adicionar Produto</a>
+    </main>
 </body>
 </html>
