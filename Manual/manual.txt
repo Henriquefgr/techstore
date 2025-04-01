@@ -1,0 +1,83 @@
+
+Manual de Usuário: Sistema de Gerenciamento de Produtos
+
+---
+
+Introdução 
+Este sistema foi projetado para ajudar os usuários a gerenciar produtos de maneira eficiente. Ele permite listar, adicionar e editar produtos de forma prática por meio de uma interface amigável e intuitiva.
+
+---
+
+Acesso ao Sistema 
+1. URL Inicial: Acesse o sistema no endereço:  
+`http://127.0.0.1:8000/`
+
+2. Página Inicial:  
+A página inicial exibe a lista de produtos cadastrados no sistema.  
+Cada produto exibido contém informações como nome, descrição, preço, quantidade, e botões para ações.
+
+---
+
+Funcionalidades 
+
+1. Listar Produtos:  
+- Localização: Página inicial.  
+- O que Faz: Mostra uma tabela com todos os produtos cadastrados.  
+- Interação Disponível:  
+  - Botão "Editar" para alterar os dados de um produto.  
+  - Botão "Excluir" para remover um produto da lista.
+
+2. Adicionar Produtos:  
+- Localização: Clique no botão "Adicionar Produto" ou acesse diretamente via `/adicionar/`.  
+- O que Faz: Permite cadastrar um novo produto fornecendo:  
+  - Nome do produto.  
+  - Descrição.  
+  - Preço (valor decimal).  
+  - Quantidade (valor inteiro).  
+- Passos:  
+  1. Preencha todos os campos obrigatórios do formulário.  
+  2. Clique no botão "Adicionar Produto" para salvar.  
+- Resultados: Após o envio, você será redirecionado para a página inicial onde o novo produto aparecerá listado.
+
+3. Editar Produtos:  
+- Localização: Botão "Editar" na tabela de produtos.  
+- O que Faz: Permite ajustar as informações de um produto já existente.  
+- Passos:  
+  1. Clique no botão "Editar" ao lado do produto que deseja atualizar.  
+  2. Modifique os dados no formulário exibido.  
+  3. Clique em "Salvar Alterações".  
+- Resultados: O produto será atualizado e exibido na tabela inicial.
+
+4. Excluir Produtos:  
+- Localização: Botão "Excluir" na tabela de produtos.  
+- O que Faz: Remove permanentemente um produto do sistema.  
+- Passos:  
+  1. Clique no botão "Excluir" ao lado do produto que deseja remover.  
+  2. Confirme a exclusão (caso solicitado).  
+- Resultados: O produto será excluído da lista.
+
+---
+
+Detalhes Técnicos
+
+1. Requisitos do Navegador:  
+Recomendamos usar navegadores modernos, como Google Chrome, Microsoft Edge ou Firefox.
+
+2. Conexão com o Servidor:  
+Certifique-se de que o servidor Django está em execução:  
+`python manage.py runserver`
+
+3. Arquivos Estáticos:  
+Para estilos CSS e imagens, certifique-se de ter executado o comando:  
+`python manage.py collectstatic`
+
+---
+
+Mensagens Comuns
+
+1. Erro 404 - Página Não Encontrada:  
+Esse erro pode ocorrer se a URL acessada não existir no sistema.  
+Verifique se você está acessando o caminho correto, como `/adicionar/` ou `/editar/{id}/`.
+
+2. Erro de Validação:  
+Caso os campos obrigatórios do formulário não sejam preenchidos, o sistema exibirá mensagens de erro pedindo para corrigi-los.
